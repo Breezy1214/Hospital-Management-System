@@ -1,17 +1,18 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Doctor extends Person {
-    long id;
+    int id;
     String specialiazation;
-    List<String> treatmentHistory;
+    LinkedList<String> treatmentHistory;
+    ArrayList<TimeSlot> availableHours;
 
-    public Doctor(long id, String firstName, String lastName, int age, String specialization) {
+    public Doctor(int id, String firstName, String lastName, int age, String specialization, ArrayList<TimeSlot> availableHours) {
         super(firstName, lastName, age);
         this.id = id;
         this.specialiazation = specialization;
         this.treatmentHistory = new LinkedList<>();
-
+        this.availableHours = availableHours;
     }
 
     public void addTreatment(String treatment) {

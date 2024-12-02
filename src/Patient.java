@@ -1,10 +1,9 @@
 import java.util.LinkedList;
-import java.util.List;
 
 public class Patient extends Person {
     long id;
     String diagnosis;
-    List<String> treatmentHistory;
+    LinkedList<String> treatmentHistory;
 
     public Patient(long id, String firstName, String lastName, int age, String diagnosis) {
         super(firstName, lastName, age);
