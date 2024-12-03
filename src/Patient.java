@@ -5,6 +5,7 @@ public class Patient extends Person {
     String diagnosis;
     LinkedList<String> treatmentHistory;
 
+
     public Patient(long id, String firstName, String lastName, int age, String diagnosis) {
         super(firstName, lastName, age);
         this.id = id;
