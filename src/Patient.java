@@ -1,31 +1,55 @@
-import java.util.LinkedList;
+import java.io.Serializable;
 
-public class Patient extends Person {
-    long id;
-    String diagnosis;
-    LinkedList<String> treatmentHistory;
+public class Patient extends User implements Serializable {
+    private int id;
+    private String diagnosis;
+    private int priority;
+    private String status;
 
-
-    public Patient(long id, String firstName, String lastName, int age, String diagnosis) {
-        super(firstName, lastName, age);
+    public Patient(int id, String username, String password, String diagnosis, int priority, String status) {
+        super(username, password, Role.PATIENT);
         this.id = id;
         this.diagnosis = diagnosis;
-        this.treatmentHistory = new LinkedList<>();
+        this.priority = priority;
+        this.status = status;
     }
 
-    public void addTreatment(String treatment) {
-        treatmentHistory.add(treatment);
+    public int getId() {
+        return id;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "Patient{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
+                "id=" + id +
+                ", username='" + getUsername() + '\'' +
                 ", diagnosis='" + diagnosis + '\'' +
-                ", treatmentHistory=" + treatmentHistory +
+                ", priority=" + priority +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
