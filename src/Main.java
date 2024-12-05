@@ -364,41 +364,45 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        loadAllData();
+        try {
+            loadAllData();
 
-        System.out.print("Enter username: ");
-        String username = scanner.nextLine();
-        System.out.print("Enter password: ");
-        String password = scanner.nextLine();
+            System.out.print("Enter username: ");
+            String username = scanner.nextLine();
+            System.out.print("Enter password: ");
+            String password = scanner.nextLine();
 
-        if (userManager.authenticate(username, password)) {
-            System.out.println("Authentication successful!");
-            Role role = userManager.getUserRole(username);
-            System.out.println("Welcome, " + role + "!");
+            if (userManager.authenticate(username, password)) {
+                System.out.println("Authentication successful!");
+                Role role = userManager.getUserRole(username);
+                System.out.println("Welcome, " + role + "!");
 
-            switch (role) {
-                case ADMIN:
-                    adminOperations();
-                    break;
-                case DOCTOR:
-                    doctorOperations();
-                    break;
-                case NURSE:
-                    nurseOperations();
-                    break;
-                case RECEPTIONIST:
-                    receptionistOperations();
-                    break;
-                case PATIENT:
-                    patientOperations();
-                    break;
-                default:
-                    System.out.println("Invalid role.");
+                switch (role) {
+                    case ADMIN:
+                        adminOperations();
+                        break;
+                    case DOCTOR:
+                        doctorOperations();
+                        break;
+                    case NURSE:
+                        nurseOperations();
+                        break;
+                    case RECEPTIONIST:
+                        receptionistOperations();
+                        break;
+                    case PATIENT:
+                        patientOperations();
+                        break;
+                    default:
+                        System.out.println("Invalid role.");
+                }
+            } else {
+                System.out.println("Authentication failed. Please try again.");
             }
-        } else {
-            System.out.println("Authentication failed. Please try again.");
-        }
 
-        saveAllData();
+            saveAllData();
+        } catch (Exception e) {
+            System.out.println("Unexpected error: " + e.getMessage());
+        }
     }
 }
