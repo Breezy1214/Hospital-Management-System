@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Hospital Management System that allows administrators, doctors, nurses, receptionists, and patients to manage various hospital operations such as user management, appointments, patient records, and more.
+The Hospital Management System is a simple Java school project that allows administrators, doctors, nurses, receptionists, and patients to manage various hospital operations such as user management, appointments, patient records, and more.
 
 ## Features
 
