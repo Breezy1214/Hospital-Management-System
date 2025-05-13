@@ -43,6 +43,10 @@ public class UserManager implements Serializable {
         User user = users.get(username);
         return user != null ? user.getRole() : null;
     }
+    
+    public User getUserByUsername(String username) {
+        return users.get(username);
+    }
 
     public void addUser(User user) {
         users.put(user.getUsername(), user);
