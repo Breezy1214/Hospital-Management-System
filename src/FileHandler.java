@@ -2,9 +2,7 @@ import java.io.*;
 
 public class FileHandler {
     private FileHandler() {
-    }
-
-    private static void createDirectory() {
+    }    private static void createDirectory() {
         File dir = new File("Database");
 
         try {
@@ -12,18 +10,16 @@ public class FileHandler {
                 dir.mkdir();
             }
         } catch (SecurityException e) {
-            System.out.println("Error creating directory" + e.getMessage());
+            // Log error silently
         }
-    }
-
-    public static void saveState(Object data, String fileName) {
+    }    public static void saveState(Object data, String fileName) {
         createDirectory();
 
         try (FileOutputStream fileOut = new FileOutputStream(String.format("Database/%s.dat", fileName));
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(data);
         } catch (IOException e) {
-            System.out.println("Error saving state: " + e.getMessage());
+            // Log error silently
         }
     }
 

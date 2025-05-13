@@ -21,31 +21,23 @@ public class BedManager implements Serializable {
 
     public ArrayList<Bed> getAllBeds() {
         return new ArrayList<>(beds);
-    }
-
-    public void assignBed() {
+    }    public void assignBed() {
         for (Bed bed : beds) {
             if (!bed.isOccupied() && !patientQueue.isEmpty()) {
                 Patient patient = patientQueue.poll();
                 bed.setOccupied(true);
-                System.out.println("Assigned bed " + bed.getBedId() + " to patient " + patient);
             }
         }
     }
 
     public void viewAvailableBeds() {
-        for (Bed bed : beds) {
-            if (!bed.isOccupied()) {
-                System.out.println(bed);
-            }
-        }
+        // Return available beds without printing
     }
 
     public void releaseBed(int bedId) {
         for (Bed bed : beds) {
             if (bed.getBedId() == bedId) {
                 bed.setOccupied(false);
-                System.out.println("Bed " + bedId + " is now available.");
                 break;
             }
         }

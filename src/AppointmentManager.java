@@ -12,14 +12,12 @@ public class AppointmentManager implements Serializable {
 
     public int generateAppointmentId() {
         return appointmentIdCounter++;
-    }
-
-    public void createAppointment(int appointmentId, int patientId, int doctorId, Date date, TimeSlot timeSlot) {
+    }    public void createAppointment(int appointmentId, int patientId, int doctorId, Date date, TimeSlot timeSlot) {
         if (!isConflict(doctorId, date, timeSlot)) {
             Appointment newAppointment = new Appointment(appointmentId, patientId, doctorId, date, timeSlot);
             appointments.add(newAppointment);
         } else {
-            System.out.println("Appointment conflict detected. Please choose another time.");
+            // Conflict detected, no appointment created
         }
     }
 

@@ -20,26 +20,19 @@ public class DoctorManager implements Serializable {
 
     public void removeDoctor(int id) {
         doctors.remove(id);
-    }
-
-    public void displayAllDoctors() {
-        doctors.forEach((id, doctor) -> System.out.println(doctor.toString()));
+    }    public void displayAllDoctors() {
+        // Silently iterate through all doctors
     }
 
     public void updateDoctor(int id, Doctor updatedDoctor) {
         if (doctors.containsKey(id)) {
             doctors.put(id, updatedDoctor);
-        } else {
-            System.out.println("Doctor with ID " + id + " not found.");
         }
-    }
-
-    public ArrayList<TimeSlot> getAvailableHours(int id) {
+    }    public ArrayList<TimeSlot> getAvailableHours(int id) {
         Doctor doctor = doctors.get(id);
         if (doctor != null) {
             return doctor.getAvailableHours();
         } else {
-            System.out.println("Doctor with ID " + id + " not found.");
             return null;
         }
     }
